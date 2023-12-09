@@ -1,4 +1,4 @@
-# https://bizarrechaos.com
+# https://nicolasdamians.github.io/
 
 Github Pages hosted Jekyll site for personal use
 
