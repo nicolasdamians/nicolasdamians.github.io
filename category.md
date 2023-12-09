@@ -3,7 +3,25 @@ layout: default
 permalink: /category/
 ---
 
-<p>$ ls <span class="reserved">-l</span> <span class="string">categories</span> | grep <span class="reserved">-e</span> <span class="string">'total'</span> <span class="reserved">-e</span> <span class="string">'^d'</span> | awk <span class="string">'{print $9, $5}'</span><br />total {{ site.tags | size }}</p>
+<p>$ cat <span class="string">script.sh</span><br />
+$ #!/bin/bash
+
+# Navigate to the directory containing the categories
+cd /home/gen0ne/categories
+
+# List categories and count the number of folders
+categories=$(ls -l | grep '^d' | awk '{print $9}')
+total_folders=$(echo "$categories" | wc -l)
+echo "total $total_folders"
+
+# Loop through each category
+echo "$categories" | while read -r category; do
+    # Count the number of files inside each folder
+    file_count=$(ls -l "$category" | grep '^-' | wc -l)
+    echo "$category $file_count"
+done<br />
+$ ./script.sh
+total {{ site.tags | size }}</p>
 <p>
     {% assign list = site.tags | sort %}
     {% for category in list %}
@@ -25,3 +43,6 @@ permalink: /category/
     {% endfor %}
     {% assign taglist = nil %}
 </p>
+
+
+
