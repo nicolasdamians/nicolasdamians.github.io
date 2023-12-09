@@ -3,8 +3,9 @@ layout: default
 permalink: /category/
 ---
 
-<p>$ cat <span class="string">script.sh</span><br />
-$ #!/bin/bash
+```bash
+$ cat <span class="string">script.sh</span>
+#!/bin/bash
 
 # Navigate to the directory containing the categories
 cd /home/gen0ne/categories
@@ -19,9 +20,10 @@ echo "$categories" | while read -r category; do
     # Count the number of files inside each folder
     file_count=$(ls -l "$category" | grep '^-' | wc -l)
     echo "$category $file_count"
-done<br />
+done
 $ ./script.sh
-total {{ site.tags | size }}</p>
+total {{ site.tags | size }}
+</p>
 <p>
     {% assign list = site.tags | sort %}
     {% for category in list %}
