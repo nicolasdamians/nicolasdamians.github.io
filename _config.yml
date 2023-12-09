@@ -1,11 +1,11 @@
 # Site settings
-title: "nicolasdamians"
+title: "gen0ne"
 bye_message: ""
 baseurl: "/"
 url: "https://nicolasdamians.github.io/"
 
 # Header settings
-nick: "nicolasdamians"
+nick: "gen0ne"
 mail:
     domain: "nicods"
     ext: "com"
