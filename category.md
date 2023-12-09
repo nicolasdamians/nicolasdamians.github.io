@@ -20,7 +20,7 @@ echo "$categories" | while read -r category; do<br />
     file_count=$(ls -l "$category" | grep '^-' | wc -l)<br />
     echo "$category $file_count"<br />
 done<br />
-$ ./script.sh<br />
+<p>$ <span class="string">./script.sh</span><br />
 total {{ site.tags | size }}</p>
 <p>
     {% assign list = site.tags | sort %}
