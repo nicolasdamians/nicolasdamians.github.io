@@ -3,27 +3,25 @@ layout: default
 permalink: /category/
 ---
 
-```bash
-$ cat <span class="string">script.sh</span>
-#!/bin/bash
-
-# Navigate to the directory containing the categories
-cd /home/gen0ne/categories
-
-# List categories and count the number of folders
-categories=$(ls -l | grep '^d' | awk '{print $9}')
-total_folders=$(echo "$categories" | wc -l)
-echo "total $total_folders"
-
-# Loop through each category
-echo "$categories" | while read -r category; do
-    # Count the number of files inside each folder
-    file_count=$(ls -l "$category" | grep '^-' | wc -l)
-    echo "$category $file_count"
-done
-$ ./script.sh
-total {{ site.tags | size }}
-</p>
+<p>$ cat <span class="string">script.sh</span><br />
+$ #!/bin/bash<br />
+<br />
+# Navigate to the directory containing the categories<br />
+cd /home/gen0ne/categories<br />
+<br />
+# List categories and count the number of folders<br />
+categories=$(ls -l | grep '^d' | awk '{print $9}')<br />
+total_folders=$(echo "$categories" | wc -l)<br />
+echo "total $total_folders"<br />
+<br />
+# Loop through each category<br />
+echo "$categories" | while read -r category; do<br />
+    # Count the number of files inside each folder<br />
+    file_count=$(ls -l "$category" | grep '^-' | wc -l)<br />
+    echo "$category $file_count"<br />
+done<br />
+$ ./script.sh<br />
+total {{ site.tags | size }}</p>
 <p>
     {% assign list = site.tags | sort %}
     {% for category in list %}
