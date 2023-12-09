@@ -4,7 +4,7 @@ permalink: /category/
 ---
 
 <p>$ cat <span class="string">script.sh</span><br />
-$ #!/bin/bash<br />
+#!/bin/bash<br />
 <br />
 # Navigate to the directory containing the categories<br />
 cd /home/gen0ne/categories<br />
