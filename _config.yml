@@ -2,13 +2,13 @@
 title: "gen0ne"
 bye_message: ""
 baseurl: "/"
-url: "https://nicolasdamians.github.io"
+url: "https://xargs.cat"
 
 # Header settings
 nick: "gen0ne"
 mail:
-    domain: "nicods"
-    ext: "com"
+    domain: "xargs"
+    ext: "cat"
 source_code:
     server: "github.com"
     nick: "nicolasdamians"
