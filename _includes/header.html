@@ -5,14 +5,32 @@
     <p>
     nick = <span class="string">'{{ site.nick }}'</span>
     </p>
+  <p>
+    nick = <span class="string"># Define your data</span>
+    </p>
+  <p>
+    nick = <span class="string">first_name = 'nicolas'</span>
+    </p>
+  <p>
+    nick = <span class="string">middle_name = 'damian'</span>
+    </p>
+  <p>
+    nick = <span class="string">last_name_initial = 's'</span>
+    </p>
+  <p>
+    nick = <span class="string"># Concatenate the GitHub username</span>
+    </p>
+  <p>
+    nick = <span class="string">github_username = first_name + middle_name + last_name_initial</span>
+    </p>
     <p>
     <span class="reserved">print</span><span class="string">(f'<span class="reserved">{nick}</span>@<span class="reserved">xargs</span>.{{ site.mail.ext }}')</span>
     </p>
     <p>
-    <span class="reserved">print</span><a href="https://{{ site.source_code.server }}/{{ site.source_code.nick }}" target="_blank"><span class="string">(f'https://{{ site.source_code.server }}/<span class="reserved">{nick}</span>')</span></a>
+    <span class="reserved">print</span><a href="https://{{ site.source_code.server }}/{{ site.source_code.nick }}" target="_blank"><span class="string">(f'https://{{ site.source_code.server }}/<span class="reserved">{github_username}</span>')</span></a>
     </p>
     <p>
-    <span class="reserved">print</span><a href="https://twitter.com/gen0ne1" target="_blank"><span class="string">(f'https://twitter.com/<span class="reserved">{nick}</span>')</span></a>
+    <span class="reserved">print</span><a href="https://twitter.com/gen0ne1" target="_blank"><span class="string">(f'https://twitter.com/<span class="reserved">{nick}1</span>')</span></a>
     </p>
   </div>
 </header>
