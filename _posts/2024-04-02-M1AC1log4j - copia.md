@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Log4j"
+date: 2024-04-02 23:25:00 -0400
+categories:
+    - posts
+tags:
+    - Master
+    - Home_work
+    - vulnerability
+---
+
+## M1.AC1. CVE Vulnerabilities (CPEs)
+
+### Professional Master in Offensive Security (OSCP) (26/03/2024 - 31/03/2025)
+
+- **Student:** Nicolas Sadofschi | gen0ne | [https://xargs.cat](https://xargs.cat)
+
+### CVE-2021-44228 (Log4Shell)
+
+- **CVSS:** 10.0 CRITICAL
+
+#### Introduction:
+
+Log4j is a logging library used in Java applications to generate activity logs. The Log4j vulnerability was categorized with a CVSS 10.0, meaning it's extremely severe and deserved (and deserves) immediate attention. This vulnerability is exceptionally critical due to the number of exposed services using Java and Log4j. It affected Windows or Linux equally, companies, governments, mobile applications, IoT devices, etc. A very high percentage of systems were (and are) vulnerable. Additionally, the ease of exploitation and the level of access that can be gained make it a significant threat. Following the criticality line, many devices, especially IoT, using Java and Log4j remain unpatched, as manufacturers may have stopped providing support.
+
+#### PoC:
+
+- [PoC: CVE-2021-44228 - POC - Log4j - Exploit](https://www.youtube.com/watch?v=sSAyfj9gbqA)
+- [PoC2: Log4Shell (Log4J vulnerability) Minecraft exploit shell PoC (CVE-2021-44228) demo](https://www.youtube.com/watch?v=060VHbjbmjM)
+
+#### Mitigation:
+
+Mitigation basically involves updating the Log4j version. On the other hand, NGFWs such as Fortigate, PaloAlto, and WAFs are capable of inspecting HTTP, HTTPS, or other relevant protocols to detect and block malicious or unusual requests that could be attempting to exploit the vulnerability.
+
+#### Best Practices:
+
+- Keep systems updated.
+- Integration of NGFW and SIEM (Monitoring, alerts, behavior analysis, etc.).
+- Data analysis platform like Splunk or Elasticsearch to have visibility, detection, correlation, reliable data source.
+
+#### Conclusion:
+
+The critical vulnerability in log4j has highlighted the importance of three fundamental pillars in computer security:
+
+1. **Constant updates:** Keeping third-party libraries updated is crucial to avoid security breaches. It is vital for companies to implement processes to regularly verify and update the software dependencies they use.
+2. **Proactive security:** Implementing security filters, such as next-generation firewalls (NGFWs) and web application protection systems (WAFs), helps prevent intrusions and mitigate the impact of vulnerabilities.
+3. **Collaboration and responsibility:** The cybersecurity community must work together to share information, disclose vulnerabilities responsibly, and develop joint solutions.
+
+**Bonus:** Tool integration: Integrating tools like Splunk or Elasticsearch with existing security systems can significantly improve threat detection, response, and mitigation.
