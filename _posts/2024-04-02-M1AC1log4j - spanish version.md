@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Log4j"
+title: "Log4j - Spanish Version"
 date: 2024-04-13 23:25:00 -0400
 categories:
     - posts
@@ -8,6 +8,7 @@ tags:
     - Master
     - Home_work
     - vulnerability
+    - es
 ---
 
 ## M1.AC1. CVE Vulnerabilities (CPEs)
