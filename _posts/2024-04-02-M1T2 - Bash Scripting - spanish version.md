@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "M1T2 - Pass2hash - Spanish Version"
-date: 2024-04-14 21:25:00 -0400
+date: 2024-04-14 21:25:00 
 categories:
     - posts
 tags:
