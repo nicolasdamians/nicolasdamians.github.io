@@ -42,7 +42,7 @@ With this activity, we will create a list of the vulnerabilities that you consid
 | --- | --- |
 | CWE-ID | [CWE-917](http://cwe.mitre.org/data/definitions/917.html) [CWE-400](http://cwe.mitre.org/data/definitions/400.html) [CWE-20](http://cwe.mitre.org/data/definitions/20.html) [CWE-502](http://cwe.mitre.org/data/definitions/502.html) |
 | --- | --- |
-| Capec | [**1000**](https://capec.mitre.org/data/definitions/1000.html)[**152**](https://capec.mitre.org/data/definitions/152.html)[**137**](https://capec.mitre.org/data/definitions/137.html)[**6**](https://capec.mitre.org/data/definitions/6.html) |
+| Capec | [**1000**](https://capec.mitre.org/data/definitions/1000.html) - [**152**](https://capec.mitre.org/data/definitions/152.html) - [**137**](https://capec.mitre.org/data/definitions/137.html) - [**6**](https://capec.mitre.org/data/definitions/6.html) |
 | --- | --- |
 
 
