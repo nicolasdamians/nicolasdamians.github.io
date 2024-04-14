@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "Log4j - Spanish Version"
+title: "M1AC1 - Log4j - Spanish Version"
 date: 2024-04-13 23:25:00 -0400
 categories:
     - posts
 tags:
     - Master
     - Home_work
+    - M1
     - vulnerability
     - es
 ---
