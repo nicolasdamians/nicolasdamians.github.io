@@ -65,6 +65,7 @@ Ejemplo:
 #
 # Historial de cambios:
 # 15/04/2024 19:15 V.1.0 
+# 15/04/2024 19:15 - Mensaje saliendo, movido de 6 a 3, agregado en menu principal.
 #
 # Mejoras:  - Se podria incluir una evaluacion de IP y puertos, sin embargp el script es para mi uso.
 #           - Agregar nikto, wpscan, wfuzz, etc.
@@ -118,7 +119,7 @@ Mensajes(){
                 echo
                 echo -n "Introduce un Puerto ej. 4444: "
                 ;;
-            6)
+            3)
                 echo
                 echo "Saliendo..."
                 echo
@@ -382,6 +383,7 @@ then
                 fi
                 ;;
             9)
+                Mensajes 3
                 exit
                 ;;
             *)
