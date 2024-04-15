@@ -65,6 +65,7 @@ Ejemplo:
 #
 # Historial de cambios:
 # 15/04/2024 19:15 V.1.0 
+# 15/04/2024 21:30 Borrado un clear en la funcion proyecto y mejorado el output
 #
 # Mejoras:  - Se podria incluir una evaluacion de IP y puertos, sin embargp el script es para mi uso.
 #           - Agregar nikto, wpscan, wfuzz, etc.
