@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "M1T2 - Pass2hash - Spanish Version"
+title: "M1T2P1 - Pass2hash - Spanish Version"
 date: 2024-04-14 21:25:00 
 categories:
     - posts
