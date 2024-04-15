@@ -65,7 +65,6 @@ Ejemplo:
 #
 # Historial de cambios:
 # 15/04/2024 19:15 V.1.0 
-# 15/04/2024 19:15 - Mensaje saliendo, movido de 6 a 3, agregado en menu principal.
 #
 # Mejoras:  - Se podria incluir una evaluacion de IP y puertos, sin embargp el script es para mi uso.
 #           - Agregar nikto, wpscan, wfuzz, etc.
@@ -149,15 +148,12 @@ ExtraerPuerto(){
 proyecto() {
     echo "Instrucciones de uso:"
     echo "====================="
-    echo "Te pediremos un nombre para el proyecto y una IP"
-    echo "La idea es que luego puedas trabajar sobre /tmp/autoh4x/<nombre proyecto>"
-    clear
     
     proyecto_creado=false  
     
     while [ "$proyecto_creado" = false ]
         do
-        read -p "Facilita un nombre para el proyecto. Nota: Se guardará en /tmp/autoh4x/<nombre proyecto>: " proyecto_name
+        read -p "Introduce un nombre para el proyecto. Nota: Se guardará en /tmp/autoh4x/<nombre proyecto>: " proyecto_name
         echo
 
         if [ -d "/tmp/autoh4x/$proyecto_name" ]
@@ -176,7 +172,6 @@ proyecto() {
     echo "Proyecto creado con éxito en /tmp/autoh4x/$proyecto_name"
     echo
 
-    echo "Facilita la dirección IP del objetivo: "
     Mensajes 0
     ip=$(LeerIP)
 }
@@ -401,5 +396,4 @@ fi
 
 proyecto
 menu_principal
-
 ```
