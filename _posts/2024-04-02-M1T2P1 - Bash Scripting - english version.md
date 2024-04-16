@@ -41,81 +41,102 @@ Objectives:
 
 #####################################################################
 # Script: pass2hash.sh
-# Description: The purpose of this script is to provide two files, one of hashes and another of passwords, in order to search for matches between the provided passwords and hashes.
+# Descripción:  El propósito de este script es proporcionar dos archivos, uno de hashes y otro de passwords, con el fin de buscar coincidencias entre las passwords proporcionadas y los hashes.
+#               Se detendrá automaticamente al encontrar el primer resultado ya que esté es el objetivo del enunciado.
+#               Dará opción a continuar si el usuario lo solicita.
 #
-# Master: Professional Master in Offensive Security (OSCP)
-# Module: M1
-# Task: Task 2 - Bash Scripting; First part
+# Autor: Nicolás Damián Sadofschi | gen0ne | xargs.cat
+# Fecha: 14/04/2024
+# Versión: 2.0
+# Master: Master Profesional en Seguridad Ofensiva (OSCP)
+# Módulo: M1
+# Tarea: Tarea 2 - Bash Scripting ; Primera parte
 #
-# Author: Nicolás Damián Sadofschi | gen0ne | xargs.cat
-# Date: 14/04/2024
-# Version: 1.0
+# Historial de cambios:
+# 14/04/2024 22:15 Agregada esta cabecera.
+# 14/04/2024 22:30 Corregidos errores ortográficos.
+# 15/04/2024 01:50 Creada función hashfunc ; cambiado orden, implementada evaluación de dos resultados
+# 15/04/2024 02:20 Errores ortográficos 
 #
-# Change history:
-# 14/04/2024 22:15 Added this header.
-# 14/04/2024 22:30 Corrected spelling errors.
+# Nota: Este script se ha hecho con mucho cariño, sin embargo la opción idonea sería usar 'hashcat' ya que fue diseñado para este uso (entre otros).
+# hashcat -m 1400 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt 
 #
 #####################################################################
 
-echo "Task:"
-echo "The first argument is the path to the hashes file (available on the campus). The hashes file contains a series of hashes. The hashes are in sha256 format (generated without line breaks with echo)."
-echo "The second argument is a wordlist file (you can reduce it or create your own)."
-echo "The idea is to read plain text words from your wordlist (typical passwords), hash them using SHA256 (without line breaks), and compare them with the words in the hashes file."
-echo ""
-echo "Objectives:"
-echo "* Find at least one word in the hashes file."
-echo "* More importantly: create the script that automates this entire search."
+echo "Tarea:"
+echo "El primer argumento es la ruta del fichero hashes (tenéis accesible en el campus). El fichero hashes es un fichero que contiene una serie de hashes. Los hashes están en sha256 (generados sin salto de línea con el echo)."
+echo "El segundo argumento es un fichero de diccionario de palabras (podéis reducirlo o crearlo)."
+echo "La idea es que se vaya leyendo las palabras en texto plano de vuestro diccionario (típicas contraseñas) y vayáis hasheando en SHA256 (sin salto de línea) y comparando con las palabras del fichero hashes."
+echo 
+echo "Objetivos:"
+echo "* Encontrar al menos una palabra en el fichero hashes."
+echo "* Más importante aún: crear el script que automatiza toda esta búsqueda."
 echo "======================================================================"
-echo ""
-echo "Instructions: ./script <hashes> <wordlist>"
-echo ""
-echo "Note: The script will print any matches found."
-echo ""
-echo "Press Enter to continue..."
+echo 
+echo "Instrucciones: ./script <hashes> <diccionario>"
+echo 
+echo "Presiona Enter para continuar..."
 read
+clear
 
-if [ $# -eq 2 ] # Evaluate if two arguments are passed
+hashfunc(){
+    match=0
+    nomatch=0
+    while read linea
+    do
+        pass2hash=$(echo -n $linea | sha256sum | cut -f1 -d' ')
+        if grep -q $pass2hash $hashes 
+        then
+            echo "Resultado encontrado: la Pass '$linea' cuyo hash es $pass2hash está presente en $hashes"
+            match=$(($match +1))
+            if [ $match -eq 1 ] && [ "$3" == "2coincidencias" ]
+            then
+                echo "Se encontró una coincidencia. Deteniendo la búsqueda."
+                break
+            fi
+        else
+            nomatch=$(($nomatch +1))
+        fi
+    done < $passwords
+
+    if [ $match -eq 0 ]; then
+        echo "No hay coincidencias."
+        exit
+    fi
+}
+
+if [ $# -eq 2 ]
 then
-        hashes=$1 # The first argument is the hashes file
-        passwords=$2 # The second argument is the wordlist file
-        
-        if [ -e $hashes ] # Check if the first argument is an existing file
+        hashes=$1 
+        passwords=$2 
+        if [ -e $hashes ] && [ -e $passwords ]
         then
                 :
         else
-                echo "The argument $hashes is not a valid file"
-                echo "Usage: $0 <hashes.txt> <wordlist.txt>"
+                echo "El argumento $hashes o $passwords no es un fichero válido"
+                echo "Uso: $0 <hashes.txt> <diccionario.txt>"
                 exit
         fi
-
-        if [ -e $passwords ] # Check if the second argument is an existing file
-        then
-                match=0
-                nomatch=0
-                while read line # Read and perform actions line by line.
-                do
-                pass2hash=$(echo -n $line | sha256sum | cut -f1 -d' ') # For each line, calculate the SHA256 hash, clean the output, and assign it to a variable for comparison.
-                        if grep -q $pass2hash $hashes # Grep the previous variable, if exists, print the result.
-                        then
-                                echo "Result found: The password '$line' whose hash is $pass2hash is present in $1"
-                                match=$(($match +1))
-                        else
-                                nomatch=$(($nomatch +1))
-                        fi
-                done < $passwords
-
-
-        else
-                echo "The argument $passwords is not a valid file"
-                echo "Usage: $0 <hashes.txt> <wordlist.txt>"
-                exit
-        fi
-
+        hashfunc "$hashes" "$passwords" "2coincidencias" 
 else
-        echo "Usage: $0 <hashes.txt> <wordlist.txt>"
+        echo "Uso: $0 <hashes.txt> <diccionario.txt>"
         exit
 fi
 
-echo "The number of passwords that match the hash is: $match"
-echo "The number of passwords that do NOT match the hash is: $nomatch"
+echo "El número de Passwords que coinciden con el hash es: $match"
+echo "El número de Passwords que NO coinciden con el hash es: $nomatch"
+echo
+echo "El objetivo de la tarea era encontrar 1 resultado. Ya hemos encontrado 1. ¿Quieres seguir?"
+read -p  "'si' para continuar. Cualquier letra para salir: " seguir
+echo
+        if [ -n "$seguir" ] && [ "$seguir" == "si" ]
+        then
+                   hashfunc "$hashes" "$passwords"
+        else
+                echo "Saliendo..."
+                exit
+        fi
+
+echo "El número de Passwords que coinciden con el hash es: $match"
+echo "El número de Passwords que NO coinciden con el hash es: $nomatch"
 ```
