@@ -47,7 +47,7 @@ Objetivos:
 #
 # Autor: Nicolás Damián Sadofschi | gen0ne | xargs.cat
 # Fecha: 14/04/2024
-# Versión: 2.0
+# Versión: 2.1
 # Master: Master Profesional en Seguridad Ofensiva (OSCP)
 # Módulo: M1
 # Tarea: Tarea 2 - Bash Scripting ; Primera parte
@@ -57,6 +57,7 @@ Objetivos:
 # 14/04/2024 22:30 Corregidos errores ortográficos.
 # 15/04/2024 01:50 Creada función hashfunc ; cambiado orden, implementada evaluación de dos resultados
 # 15/04/2024 02:20 Errores ortográficos 
+# 17/04/2024 21:50 Creada funcion Mensajes y utilizada en reemplazo de mensajes repetitivos
 #
 # Nota: Este script se ha hecho con mucho cariño, sin embargo la opción idonea sería usar 'hashcat' ya que fue diseñado para este uso (entre otros).
 # hashcat -m 1400 -a 0 hashes.txt /usr/share/wordlists/rockyou.txt 
@@ -79,6 +80,29 @@ echo "Presiona Enter para continuar..."
 read
 clear
 
+
+Mensajes(){
+    if [ $# -eq 1 ]
+        then
+            mensaje=$1
+            case $mensaje in
+            1)
+                echo "· El número de Passwords que coinciden con el hash es: $match"
+                ;;
+            2)
+                echo "· El número de Passwords que NO coinciden con el hash es: $nomatch"
+                ;;
+            3)
+                echo "· Saliendo..."
+                ;;
+            *)
+                ;;
+            esac
+        else
+            echo "· Error en los argumentos"
+        fi
+}
+
 hashfunc(){
     match=0
     nomatch=0
@@ -87,11 +111,13 @@ hashfunc(){
         pass2hash=$(echo -n $linea | sha256sum | cut -f1 -d' ')
         if grep -q $pass2hash $hashes 
         then
-            echo "Resultado encontrado: la Pass '$linea' cuyo hash es $pass2hash está presente en $hashes"
+            echo "=========================================================================================="
+            echo "· Resultado encontrado: la Pass '$linea' cuyo hash es $pass2hash está presente en $hashes"
+            echo "=========================================================================================="
             match=$(($match +1))
             if [ $match -eq 1 ] && [ "$3" == "2coincidencias" ]
             then
-                echo "Se encontró una coincidencia. Deteniendo la búsqueda."
+                echo "· Se encontró una coincidencia. Deteniendo la búsqueda..."
                 break
             fi
         else
@@ -100,7 +126,8 @@ hashfunc(){
     done < $passwords
 
     if [ $match -eq 0 ]; then
-        echo "No hay coincidencias."
+        echo "· No hay coincidencias."
+        Mensajes 3
         exit
     fi
 }
@@ -113,30 +140,32 @@ then
         then
                 :
         else
-                echo "El argumento $hashes o $passwords no es un fichero válido"
-                echo "Uso: $0 <hashes.txt> <diccionario.txt>"
+                echo "· El argumento $hashes o $passwords no es un fichero válido"
+                echo "· Uso: $0 <hashes.txt> <diccionario.txt>"
+                Mensajes 3
                 exit
         fi
         hashfunc "$hashes" "$passwords" "2coincidencias" 
 else
-        echo "Uso: $0 <hashes.txt> <diccionario.txt>"
+        echo "· Uso: $0 <hashes.txt> <diccionario.txt>"
         exit
 fi
 
-echo "El número de Passwords que coinciden con el hash es: $match"
-echo "El número de Passwords que NO coinciden con el hash es: $nomatch"
 echo
-echo "El objetivo de la tarea era encontrar 1 resultado. Ya hemos encontrado 1. ¿Quieres seguir?"
-read -p  "'si' para continuar. Cualquier letra para salir: " seguir
+Mensajes 1
+Mensajes 2
 echo
-        if [ -n "$seguir" ] && [ "$seguir" == "si" ]
+echo "· El objetivo de la tarea era encontrar 1 resultado. Ya hemos encontrado 1. ¿Quieres seguir?"
+read -p  "· Escribe 'Si' + Intro para continuar. Cualquier letra para salir: " seguir
+echo
+        if [ -n "$seguir" ] && [[ "$seguir" =~ ^[Ss][Ii]$ ]]
         then
                    hashfunc "$hashes" "$passwords"
         else
-                echo "Saliendo..."
+                Mensajes 3
                 exit
         fi
 
-echo "El número de Passwords que coinciden con el hash es: $match"
-echo "El número de Passwords que NO coinciden con el hash es: $nomatch"
+Mensajes 1
+Mensajes 2
 ```
