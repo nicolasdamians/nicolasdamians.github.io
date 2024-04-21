@@ -38,7 +38,7 @@ El script devolverá una variable dict con la siguiente información:
 
 Fijaros que el listado del directorio se devuelve en formato lista.
 
-# Parte 2
+# Código
 ```python
 # Autor: Nicolás Damián Sadofschi | gen0ne | xargs.cat
 # Fecha: 21/04/2024
