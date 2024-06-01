@@ -1,3 +1,17 @@
+---
+layout: post
+title: "M3T1 - Expresiones Regulares - Spanish Version"
+date: 2024-05-15 10:25:00 
+categories:
+    - posts
+tags:
+    - Master
+    - Home_work
+    - M3
+    - bash
+    - tools
+    - es
+---
 ### 
 
 # ÍNDICE DE CONTENIDOS
