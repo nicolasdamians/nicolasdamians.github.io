@@ -42,7 +42,6 @@ Nmap done: 1 IP address (1 host up) scanned in 4.78 seconds
                                                                                                 
 ┌──(root㉿kali)-[~/maquinas/amor]
 └─# extractPorts allPorts                                                
-Error: Can't open display: (null)
 
 [*] Extracting information...
 
