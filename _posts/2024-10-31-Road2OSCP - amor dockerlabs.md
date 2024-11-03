@@ -55,7 +55,7 @@ Nmap done: 1 IP address (1 host up) scanned in 4.78 seconds
 └─# nmap -sCV -p22,80 $target -oN targeted                               
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-10-30 06:50 CET
 Nmap scan report for 172.17.0.2
-Host is up (0.000098s latency).
+Host is up (0.000097s latency).
 
 PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13 (Ubuntu Linux; protocol 2.0)
