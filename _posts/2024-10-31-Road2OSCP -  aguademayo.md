@@ -11,24 +11,23 @@ tags:
 ---
 # aguademayo [dockerlabs]
 
-- enumeramos como siempre, vemos ssh y http
-- dirbuster y vamos a /images unico directorio
-- hay una imagen, la bajamos
-- intetnamos con steghide sacar informacion pero tiene pass y no podemos
-- intentamos hacer brute force pero no podemos romperla
-- exploramos el codigo fuente del index que parece por default, al final vemos:
-- 
+- We enumerate as usual, and we see SSH and HTTP.
+- We use Dirbuster and go to /images, the only directory.
+- There’s an image, we download it.
+- We try to extract information with steghide, but it’s password protected, and we can’t access it.
+- We attempt to brute force it, but we can’t break it.
+- We explore the source code of the index, which looks default, and in the end, we see:
+
 
 ```bash
 ++++++++++[>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++>++++++++++++>++++++++++>+++++++++++>++++++++++++>++++++++++>++++++++++++>++++++++++>+++++++++++>+++++++++++>+>+<<<<<<<<<<<<<<<<<-]>--.>+.>--.>+.>---.>+++.>---.>---.>+++.>---.>+..>-----..>---.>.>+.>+++.>.
 
 ```
 
-- usamos [https://www.splitbrain.org/_static/ook/](https://www.splitbrain.org/_static/ook/) previo busqueda en google y nos da como resultaod
-- bebeaguaqueessano
-- intentamos ssh como root y esa pass y nada
-- intentamos steghide extract con esa pass y nada
-- como el archivo q bajamos se llama “agua_ssh” intentamos con usuario agua y pass la extraida ‘bebeaguaqueessano’
+- We use https://www.splitbrain.org/_static/ook/ after a Google search, and it gives us the result: bebeaguaqueessano
+- We try SSH as root with that password, but it doesn’t work.
+- We attempt steghide extract with that password, but it fails.
+- Since the file we downloaded is named “agua_ssh,” we try using the username "agua" and the extracted password ‘bebeaguaqueessano’.
 - 
 
 # escalada
