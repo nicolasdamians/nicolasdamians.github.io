@@ -6,8 +6,6 @@ categories:
     - posts
 tags:
     - Master
-    - Home_work
-    - M3
     - osint
     - tools
     - es

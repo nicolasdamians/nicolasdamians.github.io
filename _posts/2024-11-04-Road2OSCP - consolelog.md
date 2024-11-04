@@ -8,6 +8,7 @@ tags:
     - Road2OSCP
     - CTF
     - en
+    - writeup
 ---
 
 # consolelog [dockerlabs]

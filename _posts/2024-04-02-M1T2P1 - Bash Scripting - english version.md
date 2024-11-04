@@ -6,9 +6,6 @@ categories:
     - posts
 tags:
     - Master
-    - Homework
-    - M1
-    - script
     - bash
     - en
 ---

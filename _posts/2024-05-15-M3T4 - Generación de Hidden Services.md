@@ -6,10 +6,6 @@ categories:
     - posts
 tags:
     - Master
-    - Home_work
-    - M3
-    - tor
-    - darkweb
     - es
 ---
 

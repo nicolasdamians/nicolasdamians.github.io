@@ -6,9 +6,6 @@ categories:
     - posts
 tags:
     - Master
-    - Home_work
-    - M1
-    - vulnerability
     - es
 ---
 

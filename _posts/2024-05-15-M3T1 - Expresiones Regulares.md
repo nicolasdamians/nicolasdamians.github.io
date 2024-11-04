@@ -6,10 +6,7 @@ categories:
     - posts
 tags:
     - Master
-    - Home_work
-    - M3
     - bash
-    - tools
     - es
 ---
 ### 

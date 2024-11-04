@@ -8,7 +8,9 @@ tags:
     - Road2OSCP
     - CTF
     - en
+    - writeup
 ---
+
 # amor [dockerlabs]
 
 # Enumeration

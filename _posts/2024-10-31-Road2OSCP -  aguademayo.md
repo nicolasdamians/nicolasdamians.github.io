@@ -8,7 +8,9 @@ tags:
     - Road2OSCP
     - CTF
     - en
+    - writeup
 ---
+
 # aguademayo [dockerlabs]
 
 - We enumerate as usual, and we see SSH and HTTP.
