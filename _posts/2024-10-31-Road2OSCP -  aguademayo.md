@@ -35,7 +35,8 @@ tags:
 # escalada
 
 
-![alt text](<../attachments/aguademayo/image 1.png>)![alt text](../attachments/aguademayo/image.png)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/aguademayo/image%201.png?raw=true>)
+![alt text](../attachments/aguademayo/image.png)
 _______________
 
 # Report
