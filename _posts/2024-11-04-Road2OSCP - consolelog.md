@@ -102,14 +102,14 @@ From the nmap scan we see that there is an http server running on port 80, Node.
 
 As we have also enumerated the directories we see there are /backend/ and /javascript/ . Upon checking the /backend/ we see there is a file with name ‘server.js’ where it says ‘
 
-![imagen.png?raw=true](imagen.png?raw=true)![alt text](https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen.png?raw=true)
+![alt text](https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen.png?raw=true)
 
 
 It’s clear we have a password that we can use to brutefroce
 
 Some curl Post request to test the application:
 
-![imagen.png?raw=true](imagen%201.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 1.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 1.png?raw=true>)
 
 ```bash
 ❯ curl -X POST http://172.17.0.2:3000/recurso/ -H "Content-Type: application/json" -d '{"token":"tokentraviesito"}'
@@ -120,7 +120,7 @@ Unauthorized
 
 SSH Brute force:
 
-![imagen.png?raw=true](imagen%202.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 2.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 2.png?raw=true>)
 
 **Vulnerability Explanation: A password was exposed via a file and a token, it was used to bruteforce with a list of users.**
 
@@ -130,7 +130,7 @@ SSH Brute force:
 
 **Proof of Concept Code Here:**
 
-![imagen.png?raw=true](imagen%203.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 3.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 3.png?raw=true>)
 
 **Local.txt Proof Screenshot**
 
@@ -138,18 +138,18 @@ SSH Brute force:
 
 ### Privilege Escalation
 
-![imagen.png?raw=true](imagen%204.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 4.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 4.png?raw=true>)
 
 *nano can be used as root by everyone without password. There are two ways to exploit this:
 1- Modify /etc/passwd with a generated password*
 
 2- 
 
-![imagen.png?raw=true](imagen%205.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 5.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 5.png?raw=true>)
 
 **Vulnerability Exploited:**
 
-![imagen.png?raw=true](imagen%206.png?raw=true)![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 6.png?raw=true>)
+![alt text](<https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/consolelog/imagen 6.png?raw=true>)
 
 **Vulnerability Explanation:**
 
