@@ -179,7 +179,8 @@ rosa@00c69f814360:~$ sudo cat /root/secret.txt
     
 ```
 
-![alt text](../attachments/buscalove/imagen.png)
+![alt text](https://github.com/nicolasdamians/nicolasdamians.github.io/blob/master/attachments/buscalove/imagen.png?raw=true)
+
 
 - We tried using that password for the other user we saw, Pedro.
 - 
