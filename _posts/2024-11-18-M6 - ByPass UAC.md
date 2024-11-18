@@ -31,7 +31,7 @@ Al ser el primer script realizado en PS, veo prácticamente todo el curso de PS 
 
 ## Script
 
-\`\`\`powershell
+```powershell
 # Función para hacer un backup de la clave de registro
 function Backup-RegistryKey {
     $desktopPath = [Environment]::GetFolderPath("Desktop")
@@ -143,7 +143,7 @@ function Main {
 
 # Ejecutar el script principal
 Main
-\`\`\`
+```
 
 
 ## PoC
