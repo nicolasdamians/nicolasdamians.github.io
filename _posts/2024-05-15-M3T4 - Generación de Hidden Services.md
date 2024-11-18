@@ -1,6 +1,6 @@
 ﻿---
 layout: post
-title: "M3T4 - Hidden Services - Spanish Version"
+title: "M3 T3 - Monitorización LOGS con ELK - Spanish Version"
 date: 2024-05-15 10:25:00 
 categories:
     - posts
