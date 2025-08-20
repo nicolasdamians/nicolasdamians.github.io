@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive CV - Nicolás Damián Sadofschi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a sticky navigation bar for quick access to key sections (Home, Experience, Skills, Education). The core is an interactive vertical timeline for work experience, allowing users to click to reveal details. This structure prioritizes scannability and engagement, which is crucial for recruiters who review many CVs. It turns a passive document into an active exploration of the candidate's career path. -->
+    <!-- Visualization & Content Choices: 1. Career Path -> Goal: Show progression -> Viz: Interactive Vertical Timeline -> Interaction: Click on a job to expand details -> Justification: More engaging and less overwhelming than a long text block. Method: HTML/CSS/JS. 2. Core Competencies -> Goal: Detail specific technical skills -> Viz: Categorized skill bars -> Interaction: Static visual representation of proficiency -> Justification: Provides a clear, granular view of technical abilities, replacing the overly general radar chart. Method: HTML/Tailwind. 3. General Content -> Goal: Inform -> Presentation: Clean, well-structured text blocks with clear headings. -> Justification: Ensures readability and professionalism. Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #333333;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #A0522D;
+            border-bottom-color: #A0522D;
+        }
+        .timeline-item {
+            cursor: pointer;
+        }
+        .timeline-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .timeline-content.open {
+            max-height: 1000px;
+        }
+        .skill-bar-bg {
+            background-color: #e0e0e0;
+        }
+        .skill-bar {
+            background-color: #A0522D;
+            transition: width 0.8s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                Nicolás D. Sadofschi
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link font-medium text-gray-600 pb-1">Home</a>
+                <a href="#experience" class="nav-link font-medium text-gray-600 pb-1">Experience</a>
+                <a href="#skills" class="nav-link font-medium text-gray-600 pb-1">Skills</a>
+                <a href="#education" class="nav-link font-medium text-gray-600 pb-1">Education</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#home" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Home</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Experience</a>
+            <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Skills</a>
+            <a href="#education" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Education</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="home" class="min-h-screen flex items-center">
+            <div class="w-full">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">Senior Infrastructure & Security Engineer</h1>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl">
+                    A highly motivated and experienced engineer with over a decade of experience in designing, implementing, and managing complex IT solutions. Proven expertise in network security, virtualization, and system administration with a strong focus on remote access technologies.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4 text-sm">
+                    <a href="mailto:nsadofschi@gmail.com" class="bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">nsadofschi@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/nicolas-damian-sadofschi" target="_blank" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">LinkedIn</a>
+                    <a href="http://xargs.cat" target="_blank" class="bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">Blog</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Professional Experience</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                This section outlines my career progression, highlighting key roles and responsibilities. Click on any job title to expand and see more details about the position and my accomplishments. This interactive timeline provides a clear view of my journey in the IT industry.
+            </p>
+            <div class="relative wrap overflow-hidden p-10 h-full">
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Technical Skills</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Here is a detailed breakdown of my technical abilities, grouped by specialization. This provides a clear overview of my expertise in various technologies and management domains.
+            </p>
+            <div id="skills-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+        </section>
+
+        <section id="education" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4">Education & Certifications</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Continuous learning is a core part of my professional development. This section details my formal education and the key industry certifications I have achieved, demonstrating my commitment to staying current with the latest technologies and security practices.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Master's in Offensive Security (OSCP)</h3>
+                    <p class="text-gray-600">UCAM Universidad Católica San Antonio de Murcia</p>
+                    <p class="text-gray-500 text-sm mt-1">Mar 2024 - Mar 2025</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Grado en Ingeniería, Admin. de sistemas</h3>
+                    <p class="text-gray-600">IES Lacetania</p>
+                    <p class="text-gray-500 text-sm mt-1">2005 - 2007</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">English CEFR C1</h3>
+                    <p class="text-gray-600">British Council Aptis ESOL</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Feb 2025</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">CyberOps Associate</h3>
+                    <p class="text-gray-600">Cisco</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Apr 2022</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">NSE 7 Network Security Architect</h3>
+                    <p class="text-gray-600">Fortinet</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Sep 2020 (Expired Sep 2022)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Citrix Certified Associate – Networking</h3>
+                    <p class="text-gray-600">Citrix</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Feb 2019 (Expired Feb 2022)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">VCP - Data Center Virtualization 2020</h3>
+                    <p class="text-gray-600">VMware</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Jan 2020 (Expired Jan 2022)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Fortinet NSE 4 - FortiOS 5.4</h3>
+                    <p class="text-gray-600">Fortinet</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Apr 2018 (Expired Apr 2020)</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">VCP6 – Data Center Virtualization</h3>
+                    <p class="text-gray-600">VMware</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Oct 2017 (Expired Oct 2019)</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">ITIL Foundations</h3>
+                    <p class="text-gray-600">ITIL Certified</p>
+                    <p class="text-gray-500 text-sm mt-1">Certified</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto py-6 px-6 text-center text-gray-600">
+            <p>&copy; 2025 Nicolás Damián Sadofschi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const experienceData = [
+                { company: "Julius Baer", role: "Security Engineer", period: "May 2022 - Present", location: "Zurich, Switzerland", details: ["Lead operations and engineering for remote access solutions, ensuring secure and reliable connectivity for the organization.", "Focus on enhancing security posture through the implementation and maintenance of advanced network and NetScaler configurations."] },
+                { company: "SYNLAB International", role: "Senior Infrastructure Engineer", period: "Aug 2021 - May 2022", location: "Barcelona, Spain", details: ["Managed and maintained critical infrastructure for a leading international medical diagnostics provider.", "Played a key role in infrastructure projects, contributing to the stability and scalability of the company's systems."] },
+                { company: "NTT Ltd.", role: "Solutions Engineer Tier 3 & Deputy TL", period: "Sep 2019 - Aug 2021", location: "Barcelona, Spain", details: ["Served as the final escalation point for complex incidents related to NTT's cloud solutions, ensuring timely resolution and customer satisfaction.", "Engineered and deployed robust customer platforms encompassing networking, virtualization, firewalls, and storage.", "Collaborated with project managers and architects to deliver solutions that met and exceeded client expectations within strict SLAs."] },
+                { company: "NTT Ltd.", role: "Service Desk Engineer", period: "Aug 2017 - Sep 2019", location: "Barcelona, Spain", details: ["Provided high-level technical support for managed infrastructure services, mentoring junior team members to improve overall team performance.", "Managed a wide range of technologies for major clients such as Canon, Etihad, and Aviva, including load balancers, firewalls, and VMware platforms."] },
+                { company: "NTT Ltd.", role: "Senior Infrastructure Analyst", period: "Dec 2014 - Aug 2017", location: "Barcelona, Spain", details: ["Responsible for the end-to-end management of customer solutions, from incident resolution to planning and implementing changes in production environments.", "Configured and managed Fortigate firewalls using FortiManager and CLI, ensuring robust network security."] }
+            ];
+
+            const experienceContainer = document.querySelector('#experience .relative.wrap');
+            experienceContainer.innerHTML = '<div class="border-2-2 absolute border-opacity-20 border-gray-300 h-full border" style="left: 50%"></div>';
+            experienceData.forEach((job, index) => {
+                const side = index % 2 === 0 ? 'left' : 'right';
+                const alignment = side === 'left' ? 'flex-row-reverse' : '';
+                const itemHTML = `
+                    <div class="mb-8 flex justify-between items-center w-full ${alignment}">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">${experienceData.length - index}</h1>
+                        </div>
+                        <div class="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-item">
+                            <h3 class="font-bold text-gray-800 text-xl">${job.role}</h3>
+                            <p class="text-sm font-medium text-gray-600">${job.company} | ${job.period}</p>
+                            <div class="timeline-content mt-2">
+                                <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                                    ${job.details.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                experienceContainer.innerHTML += itemHTML;
+            });
+
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    item.querySelector('.timeline-content').classList.toggle('open');
+                });
+            });
+
+            const skillsData = {
+                "Networking & Security": [
+                    { name: "Network", level: 95 }, { name: "Firewalls", level: 95 },
+                    { name: "Security", level: 90 }, { name: "Switching", level: 85 },
+                    { name: "Cisco", level: 80 }, { name: "Pentest", level: 75 },
+                    { name: "Fortinet Firewalls", level: 90 }
+                ],
+                "Infrastructure & Virtualization": [
+                    { name: "Load Balancing", level: 95 }, { name: "Citrix NetScaler", level: 90 },
+                    { name: "Storage", level: 85 }, { name: "Netapp", level: 80 },
+                    { name: "Virtualization", level: 95 }, { name: "VMware", level: 90 },
+                    { name: "Linux", level: 85 }, { name: "Windows Server", level: 80 }
+                ],
+                "Management": [
+                    { name: "Management", level: 85 }, { name: "Team Leading", level: 80 }
+                ]
+            };
+
+            const skillsContainer = document.getElementById('skills-container');
+            for (const category in skillsData) {
+                let categoryHtml = `<div class="bg-white p-6 rounded-lg shadow-md">
+                                        <h3 class="text-xl font-bold mb-4">${category}</h3>
+                                        <div class="space-y-4">`;
+                skillsData[category].forEach(skill => {
+                    categoryHtml += `<div>
+                                        <p class="text-sm font-medium text-gray-700">${skill.name}</p>
+                                        <div class="w-full skill-bar-bg rounded-full h-2.5 mt-1">
+                                            <div class="skill-bar h-2.5 rounded-full" style="width: 0%" data-width="${skill.level}%"></div>
+                                        </div>
+                                     </div>`;
+                });
+                categoryHtml += `</div></div>`;
+                skillsContainer.innerHTML += categoryHtml;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const skillBars = entry.target.querySelectorAll('.skill-bar');
+                        skillBars.forEach(bar => {
+                            bar.style.width = bar.getAttribute('data-width');
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(skillsContainer);
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

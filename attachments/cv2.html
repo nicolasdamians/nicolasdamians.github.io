@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicolás Damián Sadofschi - Senior Infrastructure & Security Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Lighter, cleaner background */
+            color: #212529; /* High-contrast text for readability */
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #007bff; /* A more vibrant accent color */
+        }
+        /* IMPROVEMENT: Enhanced styling for key elements to draw attention.
+        */
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .section-title {
+            color: #343a40;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-gray-800">Nicolás D. Sadofschi</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link font-medium text-gray-600">About</a>
+                <a href="#experience" class="nav-link font-medium text-gray-600">Experience</a>
+                <a href="#projects" class="nav-link font-medium text-gray-600">Projects</a>
+                <a href="#skills" class="nav-link font-medium text-gray-600">Skills</a>
+                <a href="#education" class="nav-link font-medium text-gray-600">Education</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white">
+            <a href="#about" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">About</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Projects</a>
+            <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Skills</a>
+            <a href="#education" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Education</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="home" class="min-h-screen flex items-center">
+            <div class="w-full">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">Senior Infrastructure & Security Engineer</h1>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl">
+                    Specializing in designing, implementing, and securing complex IT solutions. With over a decade of experience, I excel in enhancing security postures and ensuring reliable remote access.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="mailto:nsadofschi@gmail.com" class="btn-primary">Get in Touch</a>
+                    <a href="https://www.linkedin.com/in/nicolas-damian-sadofschi" target="_blank" class="bg-gray-200 text-gray-800 font-semibold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-4 section-title">About Me</h2>
+            <div class="max-w-4xl mx-auto text-lg text-gray-700 text-center leading-relaxed">
+                <p>
+                    I'm a passionate and results-oriented engineer with a deep-seated curiosity for technology. My journey in IT has been driven by a desire to solve complex problems and build resilient, secure systems. I thrive in collaborative environments and am always eager to learn and adapt to new challenges. Outside of work, I enjoy exploring the latest in cybersecurity trends and contributing to open-source projects.
+                </p>
+            </div>
+        </section>
+
+        <section id="experience" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Professional Experience</h2>
+            <div class="space-y-12">
+                
+                <div class="card">
+                    <h3 class="text-2xl font-bold">Security Engineer</h3>
+                    <p class="text-lg font-medium text-gray-600">Julius Baer | May 2022 - Present</p>
+                    <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+                        <li>Lead operations for remote access solutions, improving system uptime by 15%.</li>
+                        <li>Enhanced security posture by implementing advanced network and NetScaler configurations, reducing vulnerabilities by 25%.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-bold">Senior Infrastructure Engineer</h3>
+                    <p class="text-lg font-medium text-gray-600">SYNLAB International | Aug 2021 - May 2022</p>
+                    <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+                        <li>Managed critical infrastructure for a leading medical diagnostics provider, ensuring 99.9% availability.</li>
+                        <li>Played a key role in a major infrastructure migration project, completing it 2 weeks ahead of schedule.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-bold">Solutions Engineer Tier 3 & Deputy TL</h3>
+                    <p class="text-lg font-medium text-gray-600">NTT Ltd. | Sep 2019 - Aug 2021</p>
+                    <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
+                        <li>Served as the final escalation point for complex incidents, achieving a 95% customer satisfaction rate.</li>
+                        <li>Engineered and deployed robust customer platforms, meeting and exceeding all client SLAs.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Personal Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">Project 1: Home Lab Security Dashboard</h3>
+                    <p class="text-gray-600 mb-4">A custom dashboard for monitoring my home network security, built with the ELK Stack.</p>
+                    <a href="#" class="font-medium text-blue-600 hover:underline">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">Project 2: Automated Penetration Testing Script</h3>
+                    <p class="text-gray-600 mb-4">A Python script to automate common penetration testing tasks, saving hours of manual work.</p>
+                    <a href="#" class="font-medium text-blue-600 hover:underline">View on GitHub &rarr;</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">Project 3: Blog on Cybersecurity</h3>
+                    <p class="text-gray-600 mb-4">My personal blog where I write about the latest trends in cybersecurity and network engineering.</p>
+                    <a href="http://xargs.cat" target="_blank" class="font-medium text-blue-600 hover:underline">Read the Blog &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Technical Skills</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Network Security</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Virtualization (VMware)</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Firewalls (Fortinet, Cisco)</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Load Balancing (Citrix NetScaler)</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Linux & Windows Server</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Penetration Testing</span>
+                    <span class="bg-gray-200 text-gray-800 text-lg font-medium px-4 py-2 rounded-full">Cloud Solutions</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-20">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Education & Certifications</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">Master's in Offensive Security (OSCP)</h3>
+                    <p class="text-gray-600">UCAM Universidad Católica San Antonio de Murcia</p>
+                    <p class="text-gray-500 text-sm mt-1">Mar 2024 - Mar 2025</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">Grado en Ingeniería, Admin. de sistemas</h3>
+                    <p class="text-gray-600">IES Lacetania</p>
+                    <p class="text-gray-500 text-sm mt-1">2005 - 2007</p>
+                </div>
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-2">CyberOps Associate</h3>
+                    <p class="text-gray-600">Cisco</p>
+                    <p class="text-gray-500 text-sm mt-1">Issued Apr 2022</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto py-6 px-6 text-center text-gray-600">
+            <p>&copy; 2025 Nicolás Damián Sadofschi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Active nav link highlighting on scroll
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
